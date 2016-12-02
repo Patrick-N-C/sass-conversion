@@ -1,1 +1,594 @@
 // main SASS file
+@import "variables";
+@import "queries";
+@import "mixins";
+
+*{
+    padding:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:before,
+    &:after{
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+}
+html {
+    font-size: 16px;
+    font-family: $defaultFont;
+    line-height: 1.6;
+
+}
+h1, h2, h3, h4{
+    font-family: $headerFont;
+}
+
+ul{
+    list-style: none;
+}
+
+.clearfix:after{
+    display:table;
+    clear: both;
+    content: "";
+}
+.bg-header{
+    background-color:$lightBlue;
+    color:$dark;
+    border-bottom:1rem solid $medBlue;
+    border-top:1rem solid $darkBlue;
+    position: relative;
+    &:before, &:after{
+        content:"";
+        position:absolute;
+        bottom:-1rem;
+        width:30%;
+        height:1rem;
+        background-color: $darkBlue;
+    }
+    &:before{
+        left:0;
+    }
+    &:after{
+        right:0;
+    }
+}
+
+.bg-focal{
+    background-color: $lightBrown;
+    color: $darkBrown;
+}
+.bg-content1{
+    background-color: $white;
+    color: $dark;
+}
+.bg-content2{
+    background-color: $lightBlue;
+    color: $darkBlue;
+}
+.bg-footer{
+    @extend .bg-content1;
+    color: $lightGrey;
+}
+
+header{
+    width: 400px; /* default */
+    margin: 0 auto;
+    position: relative;
+    @include small{
+        width: 700px;
+        margin: 0 auto;
+        min-height: 8rem;
+    }
+    @include medium{
+        width: 900px;
+        margin: 0 auto;
+    }
+    @include large{
+        width: 1400px;
+        margin:0 auto;
+    }
+    h1{
+        width: 100%;
+        padding: 0 2rem;
+        color: $darkBrown;
+        letter-spacing: 0.1rem;
+        @include small{
+            color: $darkBrown;
+        }
+        @include medium{
+            color: $darkBlue;
+        }
+        @include large{
+            width: 100%;
+            color: $darkBrown;
+        }
+        i.fa-lg{
+            display:block;
+            width: 25%;
+            float:left;
+            font-size: 7rem;
+            line-height: 12.7936rem;
+            color: $lightBrown;
+            @include small{
+                display: inline;
+                color: $darkBrown;
+                vertical-align: baseline;
+                float: none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+            }
+            @include medium{
+                display:inline;
+                color: $darkBlue;
+                vertical-align:baseline;
+                float:none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+            }
+            @include large{
+                display:inline;
+                color: $darkBrown;
+                vertical-align:baseline;
+                float:none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+            }
+            ~ span{
+                float: right;
+                width: 75%;
+                font-size: 3.998rem;
+                padding-left: 1rem;
+                text-align: right;
+                @include small{
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    text-align: left;
+                }
+                @include medium{
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    text-align: left;
+                }
+                @include large{
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    &:before, &:after{
+        @include small{
+            width:230px;
+        }
+        @include medium{
+            width: 300px;
+        }
+        @include large{
+            width:450px;
+        }
+    }
+    nav{
+        width: 100%;
+        padding: 2rem 0;
+        clear: both;
+        @include small{
+            position: static;
+            clear:both;
+            width: 100%;
+            padding: 0;
+        }
+        @include medium{
+            position: static;
+            clear:both;
+            width: 100%;
+            padding: 0;
+        }
+        @include large{
+            position: static;
+            clear:both;
+            width: 100%;
+            padding: 0;
+        }
+        >ul li{
+            width:100%;
+            float: none;
+            @include small{
+                width:20%;
+                float: left;
+            }
+            @include medium{
+                width:20%;
+                float: left;
+                background-color: $white;
+            }
+            @include large{
+                width:20%;
+                float: left;
+                background-color: $white;
+            }
+            a{
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: $dark;    
+                font-size: 1.414rem;
+                letter-spacing: 0.25rem;
+                border:1px solid $lightGrey; 
+                border-bottom: none;
+                padding:1.0rem 2rem;
+                line-height: 1;
+                background-color: $white;
+                @include small{
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    min-height: 6rem;
+                    border:none;
+                    border-left:1px solid $lightGrey; 
+                    padding:1.0rem;
+                    background-color: $white;
+                }
+                @include medium{
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    min-height: 2rem;
+                    border:none;
+                    border-left:1px solid $lightGrey; 
+                    padding: 0 1.0rem;
+                    margin: 1.0rem 0;
+                    background-color: $white;
+                }
+                @include large{
+                    font-size: 1.414rem;
+                    line-height: 2rem;
+                    min-height: 2rem;
+                    border:none;
+                    border-left:1px solid $lightGrey; 
+                    padding:0 1.0rem;
+                    margin:1.0rem 0;
+                    background-color: $white;
+                }
+                &:last-child{
+                    @include small{
+                        border-right:1px solid $lightGrey;
+                    }
+                }
+                &:first-child a{
+                    @include medium{
+                        border-left: none;
+                    }
+                    @include large{
+                        border-left:none;
+                    }
+                }
+                &:hover{
+                        font-weight: 700;
+                        color:$darkBrown;
+                }
+            }
+        }
+    }
+}
+
+section {
+    &.content1, &.content2 {
+        padding: 2rem 0;
+        @include small{
+            width: 700px;
+            margin: 0 auto;
+        }
+        @include medium{
+            width: 900px;
+            margin: 0 auto;
+        }
+        @include large{
+            width: 1400px; 
+            margin: 0 auto;  
+        }
+    }
+    &.content1{
+        h3{
+            @include medium{
+                font-size: 1.999rem;
+                font-weight: 100;
+            }
+            @include large{
+                font-size: 2.827rem;
+                font-weight: 100;
+            }
+            .fa-2x{
+                @include medium{
+                    font-size: 1.999rem;
+                    padding-right: 1rem;
+                }
+                @include large{
+                    font-size: 2.827rem;
+                    padding-right: 1rem;
+                    vertical-align: middle;
+                }
+            }
+        }
+        li{
+            @include medium{
+                font-size: 1.414rem;;
+            }
+        }
+    }
+    &.content2{
+        h4{
+            @include small{
+                font-size: 1.414rem;
+            }
+            @include medium{
+                font-size: 1.414rem;
+            }
+            @include large{
+                font-size: 1.999rem;
+            }
+        }
+        li{
+            @include small{
+                font-size: 1.414rem;
+            }
+            @include large{
+                font-size: 1.999rem;
+            }
+        }
+        p{
+            @include medium{
+                font-size: 1rem;
+                font-weight: 400;
+            }
+            @include large{
+                font-size: 1.414rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.row{
+    clear: both;
+}
+
+.col-2{
+    @include colWidth(50);
+    float:left;
+    padding-bottom: 2rem;
+    border-left:1px solid $darkBlue;
+    margin-bottom: 2rem;
+}
+.col-3{
+    @include medium{
+        float:left;
+        @include colWidth(30);
+        margin-left: 5%;
+    }
+    @include large{
+        float:left;
+        @include colWidth(30);
+        margin-left: 5%;
+    }
+    &:first-child{
+        @include medium{
+            margin-left: 0;
+        }
+        @include large{
+            margin-left: 0;
+        }
+    }
+}
+.col-4{
+    @include small{
+        @include colWidth(50);
+        float: left;
+    }
+    @include medium{
+        @include colWidth(22);
+        margin-left: 4%;
+        float:left;
+    }
+    @include large{
+        @include colWidth(22);
+        margin-left: 4%;
+        float:left;
+    }
+    &:first-child{
+        @include medium{
+            margin-left: 0;
+        }
+        @include large{
+            margin-left: 0;
+        }
+    }
+}
+
+footer {
+    padding: 2rem 0;
+    .col-2:first-child{
+        border-left: 0;
+        @include small{
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+    }
+    p{
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+        color: $dark;
+        @include large{
+            font-size: 1.414rem;
+            letter-spacing: 0.2rem;
+        }
+        &:last-child{
+            @include large{
+                color: $lightGrey;
+            }
+        }
+    }
+    .fa-circle{
+        color: $dark;
+        @include small{
+            color: $medBlue;
+        }
+        @include medium{
+            color: $lightBrown;
+        }
+        @include large{
+            color: $medBlue;
+        }
+    }
+    h4{
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem;
+        color: $darkBrown;
+        &[lang=de] {
+          display: block;
+          @include small{
+                display: none;
+            }
+           @include medium{
+                display: none;
+            }
+           @include large{
+                display: none;
+            }
+        }
+        &[lang=en] {
+          display: none;
+            @include large{
+                display:block;
+            }
+            @include medium{
+                display: none;
+            }
+            @include small{
+                display: none;
+            }
+        }
+        &[lang=ar] {
+          display: none;
+            @include small{
+                display: block;
+            }
+            @include large{
+                display: none;
+            }
+            @include medium{
+                display: none;
+            }
+        }
+        &[lang=ru] {
+          display: none;
+            @include medium{
+                display:block;
+            }
+            @include small{
+                display: none;
+            }
+            @include large{
+                display: none;
+            }
+        }
+    }
+    @include small{
+        width: 700px;
+        margin: 0 auto;
+    }
+    @include medium{
+        width: 900px; 
+        margin: 0 auto; 
+    }
+    @include large{
+        width: 1400px; 
+        margin: 0 auto;  
+    }
+
+}
+
+.focal{
+    @include small{
+        width: 700px;
+        margin: 0 auto;
+    }
+    @include medium{
+        width: 900px; 
+        margin: 0 auto; 
+    }
+    @include large{
+        width: 1400px; 
+        margin: 0 auto;  
+    }
+    h2{
+        font-size: 1.999rem;
+        line-height: 1.2;
+        padding: 2rem 2rem 1rem 2rem;
+        @include medium{
+            width: 600px; 
+            margin: 0 auto;
+        }
+        @include large{
+            font-size: 3.998rem;
+            width: 600px; 
+            margin: 0 auto;
+        }
+    }
+    p.author{
+        @include medium{
+            width: 600px; 
+            margin: 0 auto;
+        }
+        @include large{
+            width: 600px; 
+            margin: 0 auto;
+        }
+    }
+    .author{
+        font-size: 1rem;
+        padding: 0.2rem 2rem 2rem;
+    }
+}
+
+.content{
+    &1{
+        p{
+            font-size: 1.414rem;
+            padding: 0.5rem 2rem 2rem;
+        }
+        h3{
+            font-size:1.999rem;
+            padding: 0.2rem 2rem 2rem;
+            i{
+                vertical-align:middle;
+                padding-right: 2rem;
+            }
+        }
+
+    }
+    &2{
+        p{
+            font-size: 1.414rem;
+            padding: 0.5rem 2rem 1rem;
+        }
+        h3{
+            font-size: 1.999rem;
+            padding: 1rem 2rem 0.5rem;
+        }
+        h4{
+            font-size: 1.999rem;
+            padding: 1rem 2rem 0rem;
+        }
+        li{
+            padding: 0.5rem 2rem;
+            font-size: 1.414rem;
+        }
+    }
+}
+
+
+//}
